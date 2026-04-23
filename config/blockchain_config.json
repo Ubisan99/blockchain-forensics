@@ -1,0 +1,80 @@
+{
+  "networks": {
+    "ethereum": {
+      "name": "Ethereum Mainnet",
+      "blockscout_url": "https://blockscout.com/eth/mainnet",
+      "api_key": "",
+      "chain_id": 1
+    },
+    "polygon": {
+      "name": "Polygon Mainnet",
+      "blockscout_url": "https://blockscout.com/polygon/mainnet",
+      "api_key": "",
+      "chain_id": 137
+    },
+    "bsc": {
+      "name": "Binance Smart Chain Mainnet",
+      "blockscout_url": "https://blockscout.com/binance/smart_chain",
+      "api_key": "",
+      "chain_id": 56
+    }
+  },
+  "ml_models": {
+    "transaction_anomaly_detector": {
+      "model_path": "models/transaction_anomaly_detector.h5",
+      "features": [
+        "value_usd",
+        "gas_price",
+        "gas_used",
+        "input_data_length",
+        "timestamp_hour",
+        "day_of_week",
+        "contract_interaction",
+        "token_transfer_count",
+        "unique_addresses_interacted"
+      ]
+    },
+    "address_risk_scorer": {
+      "model_path": "models/address_risk_scorer.h5",
+      "features": [
+        "transaction_count",
+        "failed_tx_ratio",
+        "contract_creation_count",
+        "token_holdings_count",
+        "interaction_with_mixers",
+        "interaction_with_known_exchanges",
+        "age_days",
+        "balance_usd",
+        "incoming_tx_count",
+        "outgoing_tx_count"
+      ]
+    }
+  },
+  "legal_frameworks": {
+    "money_laundering": {
+      "thresholds": {
+        "large_transaction_usd": 10000,
+        "rapid_sequence_threshold": 5,
+        "mixer_interaction_weight": 0.8
+      }
+    },
+    "fraud": {
+      "thresholds": {
+        "honeypot_detection": true,
+        "fake_volume_threshold": 1000,
+        "wash_trading_patterns": true
+      }
+    },
+    "terrorism_financing": {
+      "thresholds": {
+        "sanctioned_address_interaction": true,
+        "dark_web_marketplace_interaction": true
+      }
+    }
+  },
+  "alert_thresholds": {
+    "high_risk_score": 0.8,
+    "medium_risk_score": 0.5,
+    "min_confidence": 0.7
+  }
+}
