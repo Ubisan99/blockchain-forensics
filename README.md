@@ -1,4 +1,4 @@
-# CloudChain Blockchain Forensics Tool
+# CloudChain Blockchain Forensics Tool (BETA VERSION)
 
 Advanced blockchain forensics and security analysis tool for CloudChain (Hedera/EVM-compatible networks) with AI-powered investigation capabilities.
 
